@@ -20,7 +20,7 @@ IPAゴシックを同梱しています。フォントのライセンスは IPA_
     end
 
 最低限の設定の /work/spec/spec_helper および /work/.spec ファイルが予め配置してあるので、上記ファイルを作成したうえで、
-書きコマンドでテストが実行できます。成功したら、 /path/to/result/ 以下にスクリーンショットが作成されます。
+下記コマンドでテストが実行できます。成功したら、 /path/to/result/ 以下にスクリーンショットが作成されます。
 
     docker run -v /path/to/spec:/work/spec/my -v /path/to/result:/work/result knaou/browser-test-ja
 
