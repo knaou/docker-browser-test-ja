@@ -12,7 +12,7 @@ IPAゴシックを同梱しています。フォントのライセンスは IPA_
       background do
         # Do something
       end
-      scenario 'ログインする' do
+      scenario 'ページを表示する' do
         visit site
         page.save_screenshot 'result/screenshot.png', full: true
         expect(page).to have_content 'Google について'
