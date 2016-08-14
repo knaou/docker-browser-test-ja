@@ -7,6 +7,7 @@ IPAゴシックを同梱しています。フォントのライセンスは IPA_
 
     # /path/to/spec/sample_spec.rb
     #
+	require 'spec_helper'
     feature 'test' do
       given(:site) { "https://google.com" }
       background do
