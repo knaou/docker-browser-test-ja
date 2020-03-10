@@ -1,16 +1,16 @@
-require 'capybara'
 require 'capybara/rspec'
-require 'capybara/poltergeist'
+require 'selenium-webdriver'
 
-# poltergeist を使うように設定
-Capybara.default_driver = :poltergeist
-Capybara.ignore_hidden_elements = true
-Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new app, { :timeout => 1000 }
+RSpec.configure do |config|
+  config.include Capybara::DSL
 end
 
-module ::RSpec::Core
-  class ExampleGroup
-    include Capybara::DSL
-  end
+Capybara.register_driver :chromium_headless do |app|
+  opts = ::Selenium::WebDriver::Chrome::Options.new()
+  opts.args << '--headless'
+  opts.args << '--no-sandbox'
+  opts.args << '--disable-gpu'
+  driver = Capybara::Selenium::Driver.new(app, browser: :chrome, options: opts)
 end
+Capybara.default_driver = :chromium_headless
+
