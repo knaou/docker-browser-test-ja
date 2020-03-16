@@ -3,8 +3,12 @@ services:
   sut:
     build: .
     volumes:
-      - ./test:/work/spec/test
+      - ./result:/work/result
+      - ./test/spec:/work/spec/test:ro
+      - ./test/steps:/work/spec/steps:ro
+      - ./test/features:/work/spec/features:ro
     depends_on:
       - nginx
+    command: rspec -r turnip/rspec
   nginx:
     image: nginx:alpine
