@@ -1,0 +1,9 @@
+version: "3"
+services:
+  spec:
+    image: knaou/browser-test-ja
+    volumes:
+      - ./specs:/work/spec/specs
+      - ./steps:/work/spec/steps
+      - ./features:/work/spec/features
+

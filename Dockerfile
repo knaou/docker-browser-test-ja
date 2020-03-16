@@ -21,5 +21,5 @@ WORKDIR /work
 COPY defaults/spec_helper.rb /work/spec/spec_helper.rb
 COPY defaults/turnip_helper.rb /work/spec/turnip_helper.rb
 
-CMD ["rspec", "-r", "turnip/rspec"]
+CMD ["rspec", "-r", "turnip/rspec", "-f", "documentation"]
 

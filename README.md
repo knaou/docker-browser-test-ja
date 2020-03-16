@@ -1,28 +1,12 @@
 # browser-test-ja
 
-日本語環境に対応した Rspec/Capybara/Chromium ブラウザテスト環境です。
+日本語環境に対応した Rspec/Capybara/Turnip with Headless Chromium ブラウザテスト環境です。
 IPAゴシックを同梱しています。フォントのライセンスは fonts/IPA_Font_License_Agreement_v1.0.txt を参照。
 
 ## Quick Start
 
-    # /path/to/spec/sample_spec.rb
-    #
-	require 'spec_helper'
-    feature 'test' do
-      given(:site) { "https://google.com" }
-      background do
-        # Do something
-      end
-      scenario 'ページを表示する' do
-        visit site
-        page.save_screenshot 'result/screenshot.png', full: true
-        expect(page).to have_content 'Google について'
-      end
-    end
+最低限の設定の /work/spec/spec_helper, /work/spec/turnip_helper, /work/.spec ファイルを予め配置してあるので、次の様に、specファイル/stepsファイル/features ファイルを配置するとテストが実行されます。
 
-最低限の設定の /work/spec/spec_helper および /work/.spec ファイルを予め配置してあるので、上記ファイルを作成したうえで、
-下記コマンドでテストが実行できます。成功したら、 /path/to/result/ 以下にスクリーンショットが作成されます。
-
-    docker run -v /path/to/spec:/work/spec/my -v /path/to/result:/work/result knaou/browser-test-ja
+    docker run -v /path/to/spec:/work/spec/specs -v /path/to/steps:/work/spec/steps -v /path/to/features:/work/spec/features knaou/browser-test-ja
 
 

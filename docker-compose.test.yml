@@ -9,6 +9,5 @@ services:
       - ./test/features:/work/spec/features:ro
     depends_on:
       - nginx
-    command: rspec -r turnip/rspec
   nginx:
     image: nginx:alpine
