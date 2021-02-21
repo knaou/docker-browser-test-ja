@@ -4,7 +4,7 @@ COPY fonts/fonts.conf /root/.config/fontconfig/
 COPY fonts/ipag.ttc /root/.local/share/fonts/
 
 RUN apk add --no-cache \
-         build-base curl ruby ruby-dev \
+         build-base curl ruby ruby-dev ruby-etc \
          fontconfig udev chromium chromium-chromedriver ruby-nokogiri ruby-json \
     && gem install \
       rspec rspec-retry \
