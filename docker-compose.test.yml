@@ -2,6 +2,7 @@ version: "3"
 services:
   sut:
     build: .
+    shm_size: 256m
     volumes:
       - ./result:/work/result
       - ./test/spec:/work/spec/test:ro

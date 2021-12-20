@@ -1,8 +1,7 @@
 FROM alpine
 
-COPY fonts/fonts.conf /root/.config/fontconfig/
-COPY fonts/ipag.ttc /root/.local/share/fonts/
-
+RUN mkdir -p /usr/share/fonts/ipa /etc/fonts
+COPY fonts/ipag.ttc /usr/share/fonts/ipa/
 RUN apk add --no-cache \
          build-base curl ruby ruby-dev ruby-etc \
          fontconfig udev chromium chromium-chromedriver ruby-nokogiri ruby-json \

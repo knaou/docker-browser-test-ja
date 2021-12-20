@@ -7,10 +7,10 @@ end
 
 Capybara.register_driver :chromium_headless do |app|
   opts = ::Selenium::WebDriver::Chrome::Options.new()
-  opts.args << '--headless'
-  opts.args << '--no-sandbox'
-  opts.args << '--disable-gpu'
-  driver = Capybara::Selenium::Driver.new(app, browser: :chrome, options: opts)
+  opts.add_argument('--headless')
+  opts.add_argument('--no-sandbox')
+  opts.add_argument('--disable-gpu')
+  driver = Capybara::Selenium::Driver.new(app, browser: :chrome, capabilities: [opts])
 end
 Capybara.default_driver = :chromium_headless
 
