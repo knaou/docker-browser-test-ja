@@ -9,4 +9,15 @@ IPAゴシックを同梱しています。フォントのライセンスは font
 
     docker run -v /path/to/spec:/work/spec/specs -v /path/to/steps:/work/spec/steps -v /path/to/features:/work/spec/features knaou/browser-test-ja
 
+** docker-compose.yml 例**
+```
+version: "3"
+services:
+  spec:
+    image: knaou/browser-test-ja
+    volumes:
+      - ./specs:/work/spec/specs
+      - ./steps:/work/spec/steps
+      - ./features:/work/spec/features
 
+```

@@ -1,10 +1,10 @@
 version: "3"
 services:
-  sut:
-    build: .
+  e2e:
+    image: ${APP_IMAGE:-localhost:15000/testing-image}
     shm_size: 256m
     volumes:
-      - ./result:/work/result
+      - ../_build/e2e:/work/result
       - ./test/spec:/work/spec/test:ro
       - ./test/steps:/work/spec/steps:ro
       - ./test/features:/work/spec/features:ro
@@ -12,3 +12,4 @@ services:
       - nginx
   nginx:
     image: nginx:alpine
+
