@@ -1,7 +1,6 @@
-version: "3"
 services:
   e2e:
-    image: ${APP_IMAGE:-localhost:15000/testing-image}
+    image: knaou/browser-test-ja:${GITHUB_SHA:-latest}
     shm_size: 256m
     volumes:
       - ../_build/e2e:/work/result
@@ -12,4 +11,3 @@ services:
       - nginx
   nginx:
     image: nginx:alpine
-
